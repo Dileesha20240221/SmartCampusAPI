@@ -79,27 +79,74 @@ http://localhost:8080/api/v1
 
 ## Sample curl Commands
 
-```bash id="q1d4h7"
+## Sample curl Commands
+
+### 1. Get Discovery Endpoint
+
+```bash id="z0m4t7"
+curl -X GET http://localhost:8080/api/v1/
+```
+
+### 2. Create Room
+
+```bash id="u3v1r8"
+curl -X POST http://localhost:8080/api/v1/rooms \
+-H "Content-Type: application/json" \
+-d "{\"id\":\"R1\",\"name\":\"Library\",\"capacity\":100}"
+```
+
+### 3. Get All Rooms
+
+```bash id="g9x2m5"
 curl -X GET http://localhost:8080/api/v1/rooms
 ```
 
-```bash id="n3f8k5"
-curl -X POST http://localhost:8080/api/v1/rooms -H "Content-Type: application/json" -d "{\"id\":\"R1\",\"name\":\"Library\",\"capacity\":100}"
+### 4. Create Sensor
+
+```bash id="m5n8q1"
+curl -X POST http://localhost:8080/api/v1/sensors \
+-H "Content-Type: application/json" \
+-d "{\"id\":\"S1\",\"type\":\"Temperature\",\"status\":\"ACTIVE\",\"currentValue\":25.5,\"roomId\":\"R1\"}"
 ```
 
-```bash id="w6c2m9"
+### 5. Get All Sensors
+
+```bash id="h4p7c2"
 curl -X GET http://localhost:8080/api/v1/sensors
 ```
 
-```bash id="z8v1r3"
-curl -X POST http://localhost:8080/api/v1/sensors -H "Content-Type: application/json" -d "{\"id\":\"S1\",\"type\":\"Temperature\",\"status\":\"ACTIVE\",\"currentValue\":25.5,\"roomId\":\"R1\"}"
+### 6. Filter Sensors by Type
+
+```bash id="k2f6z9"
+curl -X GET "http://localhost:8080/api/v1/sensors?type=Temperature"
 ```
 
-```bash id="y5g7n2"
+### 7. Add Sensor Reading
+
+```bash id="r7d1w4"
+curl -X POST http://localhost:8080/api/v1/sensors/S1/readings \
+-H "Content-Type: application/json" \
+-d "{\"id\":\"READ1\",\"timestamp\":1710000000,\"value\":27.2}"
+```
+
+### 8. Get Sensor Readings
+
+```bash id="y6j3p8"
 curl -X GET http://localhost:8080/api/v1/sensors/S1/readings
 ```
 
----
+### 9. Test 404 Error
+
+```bash id="n8s5e1"
+curl -X GET http://localhost:8080/api/v1/sensors/INVALID/readings
+```
+
+### 10. Test 409 Conflict
+
+```bash id="t1q9v6"
+curl -X DELETE http://localhost:8080/api/v1/rooms/R1
+```
+
 
 ## Example JSON Requests
 
@@ -151,20 +198,7 @@ curl -X GET http://localhost:8080/api/v1/sensors/S1/readings
 
 ## Project Structure
 
-```text id="d9w3l7"
-SmartCampusAPI
-├── src
-├── pom.xml
-└── README.md
-```
-
----
-
-## Author
-
-Dileesha Dananji
-
----
+SmartCampusAPI ├── src │ ├── main │ │ ├── java │ │ │ └── com.smartcampus │ │ │ ├── SmartCampusAPI.java │ │ │ ├── config │ │ │ │ └── ApplicationConfig.java │ │ │ ├── model │ │ │ │ ├── Room.java │ │ │ │ ├── Sensor.java │ │ │ │ └── SensorReading.java │ │ │ ├── resource │ │ │ │ ├── DiscoveryResource.java │ │ │ │ ├── RoomResource.java │ │ │ │ ├── SensorResource.java │ │ │ │ └── SensorReadingResource.java │ │ │ ├── service │ │ │ │ └── DataStore.java │ │ │ ├── exception │ │ │ │ ├── RoomNotEmptyException.java │ │ │ │ ├── LinkedResourceNotFoundException.java │ │ │ │ ├── SensorUnavailableException.java │ │ │ │ ├── RoomNotEmptyMapper.java │ │ │ │ ├── LinkedResourceNotFoundMapper.java │ │ │ │ ├── SensorUnavailableMapper.java │ │ │ │ └── GlobalExceptionMapper.java │ │ │ └── filter │ │ │ └── LoggingFilter.java ├── pom.xml └── README.md
 
 ## Conclusion
 
