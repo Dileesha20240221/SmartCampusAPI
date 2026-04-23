@@ -198,7 +198,43 @@ curl -X DELETE http://localhost:8080/api/v1/rooms/R1
 
 ## Project Structure
 
-SmartCampusAPI ├── src │ ├── main │ │ ├── java │ │ │ └── com.smartcampus │ │ │ ├── SmartCampusAPI.java │ │ │ ├── config │ │ │ │ └── ApplicationConfig.java │ │ │ ├── model │ │ │ │ ├── Room.java │ │ │ │ ├── Sensor.java │ │ │ │ └── SensorReading.java │ │ │ ├── resource │ │ │ │ ├── DiscoveryResource.java │ │ │ │ ├── RoomResource.java │ │ │ │ ├── SensorResource.java │ │ │ │ └── SensorReadingResource.java │ │ │ ├── service │ │ │ │ └── DataStore.java │ │ │ ├── exception │ │ │ │ ├── RoomNotEmptyException.java │ │ │ │ ├── LinkedResourceNotFoundException.java │ │ │ │ ├── SensorUnavailableException.java │ │ │ │ ├── RoomNotEmptyMapper.java │ │ │ │ ├── LinkedResourceNotFoundMapper.java │ │ │ │ ├── SensorUnavailableMapper.java │ │ │ │ └── GlobalExceptionMapper.java │ │ │ └── filter │ │ │ └── LoggingFilter.java ├── pom.xml └── README.md
+SmartCampusAPI
+├── src
+│   └── main
+│       └── java
+│           └── com.smartcampus
+│               ├── model
+│               │   ├── Room.java
+│               │   ├── Sensor.java
+│               │   └── SensorReading.java
+│               │
+│               ├── resource
+│               │   ├── DiscoveryResource.java
+│               │   ├── RoomResource.java
+│               │   ├── SensorResource.java
+│               │   └── SensorReadingResource.java
+│               │
+│               ├── service
+│               │   └── DataStore.java
+│               │
+│               ├── exception
+│               │   ├── GlobalExceptionMapper.java
+│               │   ├── LinkedResourceNotFoundException.java
+│               │   ├── LinkedResourceNotFoundMapper.java
+│               │   ├── RoomNotEmptyException.java
+│               │   ├── RoomNotEmptyMapper.java
+│               │   ├── SensorUnavailableException.java
+│               │   └── SensorUnavailableMapper.java
+│               │
+│               ├── filter
+│               │   └── LoggingFilter.java
+│               │
+│               └── smartcampusapi
+│                   ├── SmartCampusAPI.java
+│                   └── SmartCampusApplication.java
+│
+├── pom.xml
+└── README.md
 
 ## Conclusion
 
