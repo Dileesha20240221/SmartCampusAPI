@@ -17,7 +17,6 @@ The API supports:
 * Exception handling
 * Logging filters
 
----
 
 ## Technologies Used
 
@@ -29,7 +28,6 @@ The API supports:
 * Postman
 * GitHub
 
----
 
 ## How to Build and Run the Project
 
@@ -50,7 +48,6 @@ The API supports:
 http://localhost:8080/api/v1/
 ```
 
----
 
 ## API Base URL
 
@@ -58,7 +55,6 @@ http://localhost:8080/api/v1/
 http://localhost:8080/api/v1
 ```
 
----
 
 ## API Endpoints
 
@@ -75,7 +71,6 @@ http://localhost:8080/api/v1
 | GET    | /sensors/{id}/readings    | Get readings       |
 | POST   | /sensors/{id}/readings    | Add reading        |
 
----
 
 ## Sample curl Commands
 
@@ -182,8 +177,6 @@ curl -X DELETE http://localhost:8080/api/v1/rooms/R1
 }
 ```
 
----
-
 ## Error Handling
 
 | Status Code | Description            |
@@ -194,7 +187,6 @@ curl -X DELETE http://localhost:8080/api/v1/rooms/R1
 | 403         | Sensor unavailable     |
 | 500         | Internal server error  |
 
----
 
 ## Project Structure
 
